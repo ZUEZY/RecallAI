@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Layout from "../components/Layout";
-
+const API_URL = import.meta.env.VITE_API_URL;
 function CustomersPage() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [message, setMessage] = useState("");
@@ -11,7 +11,7 @@ function CustomersPage() {
 
   const loadCustomers = async () => {
     try {
-      const response = await fetch("http://localhost:5000/customers");
+      const response = await fetch(`${API_URL}/customers`);
       const data = await response.json();
       setCustomers(data);
     } catch (err) {
@@ -34,7 +34,7 @@ function CustomersPage() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/customers/upload",
+        `${API_URL}/customers/upload`,
         {
           method: "POST",
           body: formData,

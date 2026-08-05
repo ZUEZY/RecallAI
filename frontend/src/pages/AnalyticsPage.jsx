@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Layout from "../components/Layout";
-
+const API_URL = import.meta.env.VITE_API_URL;
 function formatDateTime(value) {
 
   if (!value) return null;
@@ -85,15 +85,15 @@ function AnalyticsPage() {
 
   const loadData = () => {
 
-    fetch("http://localhost:5000/recalls")
+    fetch(`${API_URL}/recalls`)
       .then(res => res.json())
       .then(setRecalls);
 
-    fetch("http://localhost:5000/customers")
+      fetch(`${API_URL}/customers`)
       .then(res => res.json())
       .then(setCustomers);
 
-    fetch("http://localhost:5000/matches")
+      fetch(`${API_URL}/matches`)
       .then(res => res.json())
       .then(setMatches);
 
@@ -106,12 +106,12 @@ function AnalyticsPage() {
     try {
 
       const response = await fetch(
-        `http://localhost:5000/match/${id}`
+        `${API_URL}/match/${id}`
       );
 
       const data = await response.json();
       const matchesResponse = await fetch(
-        "http://localhost:5000/matches"
+        `${API_URL}/matches`
       );
       
       const latestMatches = await matchesResponse.json();
@@ -123,7 +123,7 @@ function AnalyticsPage() {
       if (!customerList || customerList.length === 0) {
 
         const customersResponse = await fetch(
-          "http://localhost:5000/customers"
+          `${API_URL}/customers`
         );
 
         customerList = await customersResponse.json();
@@ -184,7 +184,7 @@ function AnalyticsPage() {
     try {
 
       const response = await fetch(
-        "http://localhost:5000/notify",
+        `${API_URL}/notify`,
         {
           method: "POST",
           headers: {
@@ -234,7 +234,7 @@ function AnalyticsPage() {
     try {
 
       const response = await fetch(
-        `http://localhost:5000/notify/all/${matched.recallId}`,
+        `${API_URL}/notify/all/${matched.recallId}`,
         {
           method: "POST",
         }

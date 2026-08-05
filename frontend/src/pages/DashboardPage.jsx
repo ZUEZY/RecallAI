@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
-
+const API_URL = import.meta.env.VITE_API_URL;
 function DashboardPage() {
 
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ function DashboardPage() {
   });
 
   useEffect(() => {
-    fetch("http://localhost:5000/dashboard")
+    fetch(`${API_URL}/dashboard`)
       .then((response) => response.json())
       .then((data) => {
         setStats(data);

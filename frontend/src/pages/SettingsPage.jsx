@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Layout from "../components/Layout";
-
+const API_URL = import.meta.env.VITE_API_URL;
 function SettingsPage() {
 
   const [isResetting, setIsResetting] = useState(false);
@@ -17,7 +17,7 @@ function SettingsPage() {
 
     try {
 
-      const response = await fetch("http://localhost:5000/reset-demo", {
+      const response = await fetch(`${API_URL}/reset-demo`, {
         method: "POST",
       });
 

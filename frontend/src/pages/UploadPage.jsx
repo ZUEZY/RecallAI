@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Layout from "../components/Layout";
-
+const API_URL = import.meta.env.VITE_API_URL;
 function UploadPage() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [isAnalysing, setIsAnalysing] = useState(false);
@@ -32,7 +32,7 @@ function UploadPage() {
     formData.append("pdf", selectedFile);
 
     try {
-      const response = await fetch("http://localhost:5000/analyse", {
+      const response = await fetch(`${API_URL}/analyse`, {
         method: "POST",
         body: formData,
       });
