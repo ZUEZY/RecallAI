@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Page */
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: #05070D;
+}
+
+/* Modern Scrollbar */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #05070D;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(120, 169, 214, 0.35);
+  border-radius: 999px;
+  border: 2px solid #05070D;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(120, 169, 214, 0.75);
+}
+
+::-webkit-scrollbar-corner {
+  background: #05070D;
+}
+
+/* Firefox */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(120,169,214,0.45) #05070D;
+}

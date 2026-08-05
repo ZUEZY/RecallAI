@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    background: #05070d;
+    overflow: hidden;
+    font-family: Inter, system-ui, sans-serif;
+  }
+  
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+  
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.35);
+  }
+  /* Floating Car */
+
+@keyframes floatCar {
+
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+
+}
+
+.float-car{
+    animation: floatCar 7s ease-in-out infinite;
+}
+@keyframes glowPulse {
+
+    0%,100%{
+        transform:translate(-50%,-50%) scale(1);
+        opacity:.10;
+    }
+  
+    50%{
+        transform:translate(-50%,-50%) scale(1.08);
+        opacity:.18;
+    }
+  
+  }
+  
+ 
